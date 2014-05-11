@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  host: localhost
+  database: walapp_development
+
+test:
+  <<: *default
+  host: localhost
+  database: walapp_test
+
+production:
+  <<: *default
+  database: walapp_production
+  username: walapp
+  password: <%= ENV['WALAPP_DATABASE_PASSWORD'] %>
